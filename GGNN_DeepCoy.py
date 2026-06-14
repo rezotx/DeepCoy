@@ -1,7 +1,6 @@
 #!/usr/bin/env/python
 
 from typing import Tuple, List, Any, Sequence
-import tensorflow as tf
 import time
 import os
 import json
@@ -9,6 +8,7 @@ import numpy as np
 import pickle
 import random
 import utils
+from tf_compat import tf
 from utils import MLP, dataset_info, ThreadedIterator, graph_to_adj_mat, SMALL_NUMBER, LARGE_NUMBER, graph_to_adj_mat
 
 class ChemModel(object):

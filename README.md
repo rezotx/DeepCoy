@@ -37,6 +37,26 @@ conda env create -f DeepCoy-env.yml
 conda activate DeepCoy-env
 ```
 
+## Blackwell GPU runtime
+
+This fork can also run on NVIDIA Blackwell GPUs with TensorFlow 2 through
+`tf.compat.v1` and legacy Keras. This path was tested on an RTX PRO 6000
+Blackwell GPU with Python 3.13 and a native `sm_120` TensorFlow wheel.
+
+```bash
+python3.13 -m venv venv-blackwell
+source venv-blackwell/bin/activate
+pip install --upgrade pip
+pip install \
+  https://github.com/chivitiH/tensorflow-blackwell-python313/releases/download/v2.22.0-selfbuilt/tensorflow-2.22.0.dev0+selfbuilt-cp313-cp313-linux_x86_64.whl
+pip install --no-deps tf-keras-nightly
+pip install docopt rdkit scipy scikit-learn pandas joblib planarity
+export TF_USE_LEGACY_KERAS=1
+```
+
+The community TensorFlow wheel is CC BY-NC 4.0. For commercial use, build an
+equivalent TensorFlow wheel with CUDA 12.8+ and `sm_120` enabled.
+
 To run our model using subgraph reweighted loss function, you need to download the subgraph frequency data from [http://opig.stats.ox.ac.uk/resources](http://opig.stats.ox.ac.uk/resources). Note this is not required for generating molecules using pretrained models but is advised for training new models.
 
 # Data Extraction
