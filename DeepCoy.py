@@ -1135,4 +1135,4 @@ if __name__ == "__main__":
     except:
         typ, value, tb = sys.exc_info()
         traceback.print_exc()
-        pdb.post_mortem(tb)
+        raise

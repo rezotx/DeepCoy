@@ -1,6 +1,5 @@
 #!/usr/bin/env/python
 import numpy as np
-from tf_compat import tf
 import queue
 import threading
 import pickle
@@ -14,6 +13,7 @@ import os
 import heapq
 from rdkit.Chem import Crippen
 import math
+from tf_compat import tf
 
 SMALL_NUMBER = 1e-7
 LARGE_NUMBER= 1e10
